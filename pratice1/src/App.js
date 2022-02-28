@@ -1,31 +1,50 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 const Father = styled.div`
   display: flex;
 `;
 
-const Btn = styled.button`
-  background-color: blue;
-  color: white;
-  border-radius: 5px;
-  width: 100px;
+const rotationAnime = keyframes`
+0% {
+  transform: rotate(0deg);
+  border-radius: 100px;
+}
+
+50% {
+  transform: rotate(180deg);
+  border-radius: 10px;
+}
+100% {
+  transform: rotate(0deg);
+  border-radius: 100px;
+} 
 `;
 
-const Input = styled.input.attrs({ required: true, minLength: 7 })`
-  background-color: red;
+const Box = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  width: 300px;
+  background-color: tomato;
+  animation: ${rotationAnime} 3s linear infinite;
+  span {
+    font-size: 50px;
+    &:hover {
+      font-size: 70px;
+    }
+    &:active {
+      opacity: 0;
+    }
+  }
 `;
 
 function App() {
   return (
     <Father>
-      <Btn>CLick!</Btn>
-      <Btn as="a" href="/">
-        link
-      </Btn>
-      <Input />
-      <Input />
-      <Input />
-      <Input />
+      <Box>
+        <span>🤯</span>
+      </Box>
     </Father>
   );
 }
