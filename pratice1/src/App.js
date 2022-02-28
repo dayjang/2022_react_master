@@ -4,23 +4,28 @@ const Father = styled.div`
   display: flex;
 `;
 
-const Box = styled.div`
-  background-color: ${(props) => props.bgColor};
+const Btn = styled.button`
+  background-color: blue;
+  color: white;
+  border-radius: 5px;
   width: 100px;
-  height: 100px;
 `;
 
-// how to extend styled components?
-// cosnt Something  = styled(Name)
-const Circle = styled(Box)`
-  border-radius: 50px;
+const Input = styled.input.attrs({ required: true, minLength: 7 })`
+  background-color: red;
 `;
 
 function App() {
   return (
     <Father>
-      <Box bgColor="teal" />
-      <Circle bgColor="tomato" />
+      <Btn>CLick!</Btn>
+      <Btn as="a" href="/">
+        link
+      </Btn>
+      <Input />
+      <Input />
+      <Input />
+      <Input />
     </Father>
   );
 }
