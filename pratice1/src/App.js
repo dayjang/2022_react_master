@@ -19,7 +19,10 @@ const rotationAnime = keyframes`
   border-radius: 100px;
 } 
 `;
-
+const Title = styled.h1`
+  font-size: 20px;
+  color: gray;
+`;
 const Box = styled.div`
   display: flex;
   justify-content: center;
@@ -37,6 +40,10 @@ const Box = styled.div`
       opacity: 0;
     }
   }
+
+  ${Title}:hover {
+    font-size: 100px;
+  }
 `;
 
 function App() {
@@ -44,7 +51,9 @@ function App() {
     <Father>
       <Box>
         <span>🤯</span>
+        <Title>yup!! </Title>
       </Box>
+      <Title>HAHA</Title>
     </Father>
   );
 }
