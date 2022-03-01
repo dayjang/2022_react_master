@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
 interface IContainer {
@@ -10,7 +10,6 @@ const Container = styled.div<IContainer>`
   width: 200px;
   height: 200px;
   background-color: ${(props) => props.bgColor};
-
   border-radius: 100px;
   border: 5px solid ${(props) => props.borderColor};
 `;
@@ -18,14 +17,16 @@ const Container = styled.div<IContainer>`
 interface ICircle {
   bgColor: string;
   borderColor?: string;
-  text?: string;
 }
 
-function Circle({ bgColor, borderColor, text = "default text" }: ICircle) {
+function Circle({ bgColor, borderColor }: ICircle) {
+  const [value, setValue] = useState<string>("");
+  setValue(3); // 3 is number so that is not assignable to value arg
   return (
-    <Container bgColor={bgColor} borderColor={borderColor ?? bgColor}>
-      {text}
-    </Container>
+    <Container
+      bgColor={bgColor}
+      borderColor={borderColor ?? bgColor}
+    ></Container>
   );
 }
 
