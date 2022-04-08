@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import React from "react";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const Container = styled.div`
   padding: 0px 20px;
@@ -53,20 +54,22 @@ interface ICoin {
 }
 
 function Coins() {
+  const [coins, setCoins] = useState<ICoin[]>();
   const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    (async () => {
+      const response = await fetch("https://api.coinpaprika.com/v1/coins");
+      const json = await response.json();
+      setCoins(json.slice(0, 100));
+      setLoading(false);
+    })();
+  }, []);
 
   return (
     <Container>
       <Header>
         <Title>C O I N YAY </Title>
       </Header>
-      <CoinList>
-        {coins.map((coin) => (
-          <Coin key={coin.id}>
-            {coin.name} {coin.symbol}
-          </Coin>
-        ))}
-      </CoinList>
     </Container>
   );
 }
