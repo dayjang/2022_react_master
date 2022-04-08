@@ -21,7 +21,6 @@ interface ICircle {
 
 function Circle({ bgColor, borderColor }: ICircle) {
   const [value, setValue] = useState<string>("");
-  setValue(3); // 3 is number so that is not assignable to value arg
   return (
     <Container
       bgColor={bgColor}
