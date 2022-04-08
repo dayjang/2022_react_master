@@ -5,3 +5,9 @@ export const theme: DefaultTheme = {
   textColor: "purple",
   accentColor: "tomato",
 };
+
+export const darkTheme: DefaultTheme = {
+  bgColor: "black",
+  textColor: "white",
+  accentColor: "pink",
+};
